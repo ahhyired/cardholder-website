@@ -9,7 +9,7 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
         formData.append('photo', file);
         formData.append('name', name);
 
-        const response = await fetch('https://your-vercel-backend-url/upload', {
+        const response = await fetch('https://your-cloudflare-worker-url/upload', {
             method: 'POST',
             body: formData
         });
@@ -26,7 +26,7 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
 });
 
 async function loadPhotos() {
-    const response = await fetch('https://your-vercel-backend-url/photos');
+    const response = await fetch('https://your-cloudflare-worker-url/photos');
     const photos = await response.json();
 
     const photoContainer = document.getElementById('photoContainer');
